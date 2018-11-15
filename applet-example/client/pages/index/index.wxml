@@ -1,0 +1,7 @@
+<!-- index.wxml -->
+<view class="container">
+    <!-- 定位icon -->
+    <icon type="dingwei" />
+    <!-- 天气icon -->
+    <icon type="{{ today.icon }}" class="logo"></icon>
+</view>
