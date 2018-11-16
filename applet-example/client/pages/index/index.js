@@ -112,7 +112,39 @@ Page({
       weather: '阴',
       icon: 'yin'
     }],
-    
+    lifeStyle: [{
+      icon: 'yin',
+      name: '舒适度',
+      info: '舒适'
+    }, {
+      icon: 'yin',
+      name: '舒适度',
+      info: '舒适'
+    }, {
+      icon: 'yin',
+      name: '舒适度',
+      info: '舒适'
+    }, {
+      icon: 'yin',
+      name: '舒适度',
+      info: '舒适'
+    }, {
+      icon: 'yin',
+      name: '舒适度',
+      info: '舒适'
+    }, {
+      icon: 'yin',
+      name: '舒适度',
+      info: '舒适'
+    }, {
+      icon: 'yin',
+      name: '舒适度',
+      info: '舒适'
+    }, {
+      icon: 'yin',
+      name: '舒适度',
+      info: '舒适'
+    }, ]
   },
 
   onLoad: function () {

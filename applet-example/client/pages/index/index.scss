@@ -35,7 +35,9 @@ $cover-bgc: rgba(0, 0, 0, 0.1);
   color: rgba(255, 255, 255, 0.5);
   padding: 0 10rpx;
 }
-
+.icon {
+  font-size: 36rpx;
+}
 // current
 .current {
   height: 560rpx;
@@ -146,6 +148,7 @@ $cover-bgc: rgba(0, 0, 0, 0.1);
   min-height: 280rpx;
   padding: 40rpx 0;
   background-color: $cover-bgc;
+  position: relative;
 }
 
 .week-weather {
@@ -157,5 +160,26 @@ $cover-bgc: rgba(0, 0, 0, 0.1);
     height: 200rpx;
     text-align: center;
     justify-content: space-between;
+  }
+}
+// .week-chart {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   height: 272rpx;
+//   top: 262rpx;
+// }
+
+.week-chart canvas {
+  width: 750rpx;
+  height: 272rpx;
+}
+
+.living {
+  @include flex-row;
+  flex-wrap: wrap;
+  .live-item {
+    width: 25%;
+    height: 188rpx;
   }
 }

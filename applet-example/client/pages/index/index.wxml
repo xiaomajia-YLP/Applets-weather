@@ -4,7 +4,7 @@
         <!-- 实时天气 -->
         <view class="current">
             <view class="position">
-                <icon type="dingwei" />
+                <icon type="dingwei"></icon>
                 <text class="address">杭州市西湖区文新街道</text>
             </view>
             <view class="air-quality">
@@ -18,7 +18,7 @@
                     <text class="temp-unit">°</text>
                 </view>
                 <view class="now-weather">
-                    <icon type="{{current.icon}}" />
+                    <icon type="{{current.icon}}"></icon>
                     <text class="now-info">{{current.weather}}</text>
                 </view>
                 <view class="weather-info">
@@ -38,7 +38,7 @@
                 </view>
                 <view class="flex-row item-row">
                     <text class="item-col">{{today.weather}}</text>
-                    <icon type="{{today.icon}}" class="item-icon" />
+                    <icon type="{{today.icon}}" class="item-icon"></icon>
                 </view>
             </view>
             <view class="item item1">
@@ -48,7 +48,7 @@
                 </view>
                 <view class="flex-row item-row">
                     <text class="item-col">{{tomorrow.weather}}</text>
-                    <icon type="{{tomorrow.icon}}" class="item-icon" />
+                    <icon type="{{tomorrow.icon}}" class="item-icon"></icon>
                 </view>
             </view>
         </view>
@@ -82,11 +82,31 @@
                 <view class="week-chart">
                     <canvas canvas-id="chart" id="chart"></canvas>
                 </view>
+                <view class="week-weather">
+                    <view class="week-item" wx:for="{{weeklyData}}">
+                        <icon type="{{item.icon}}" class="icon"></icon>
+                        <text class="temp">{{item.weather}}</text>
+                        <view class="week-day">
+                            <text class="week-time">{{ item.day }}</text>
+                            <text class="week-temp">{{ item.temp }}</text>
+                        </view>
+                    </view>
+                </view>
             </view>
         </view>
         <!-- 生活指数 -->
         <view class="container">
-            <view class="living"></view>
+            <view class="living">
+                <view class="live-item" wx:for="{{lifeStyle}}" data-name="{{item.name}}" data-detail="{{item.detail}}" bindtap="indexDetail">
+                    <view class="title">
+                        <icon type="{{item.icon}}"></icon>
+                        {{item.name}}
+                    </view>
+                    <view class="content">{{item.info}}</view>
+                </view>
+            </view>
         </view>
+        <!-- 提示信息 -->
+        <view class="message">有你的城市下雨也美丽</view>
     </view>
 </view>
