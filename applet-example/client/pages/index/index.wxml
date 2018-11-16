@@ -1,7 +1,92 @@
 <!-- index.wxml -->
-<view class="container">
-    <!-- 定位icon -->
-    <icon type="dingwei" />
-    <!-- 天气icon -->
-    <icon type="{{ today.icon }}" class="logo"></icon>
+<view class="wrapper" style="background: {{bgColor}} url({{bgImage}}) center center no-repeat">
+    <view class="container" style="padding-top: 48rpx">
+        <!-- 实时天气 -->
+        <view class="current">
+            <view class="position">
+                <icon type="dingwei" />
+                <text class="address">杭州市西湖区文新街道</text>
+            </view>
+            <view class="air-quality">
+                <text class="air-tips" style="background-color: {{air.qualityColor}}"></text>
+                <text class="quality">{{air.quality}}</text>
+                <text class="score">{{air.score}}</text>
+            </view>
+            <view class="cur-weather flex-column">
+                <view class="temperature">
+                    <text class="temp-num">{{current.temp}}</text>
+                    <text class="temp-unit">°</text>
+                </view>
+                <view class="now-weather">
+                    <icon type="{{current.icon}}" />
+                    <text class="now-info">{{current.weather}}</text>
+                </view>
+                <view class="weather-info">
+                    <text class="wet">湿度 {{current.wet}}</text>
+                    <text class="separator">|</text>
+                    <text class="wind">{{current.wind}}</text>
+                </view>
+                <view class="tips">{{current.tips}}</view>
+            </view>
+        </view>
+        <!-- 今明两日天气 -->
+        <view class="tow-days flex-row">
+            <view class="item">
+                <view class="flex-row item-row">
+                    <text class="item-col">今天</text>
+                    <text class="item-col">{{today.temperature}}</text>
+                </view>
+                <view class="flex-row item-row">
+                    <text class="item-col">{{today.weather}}</text>
+                    <icon type="{{today.icon}}" class="item-icon" />
+                </view>
+            </view>
+            <view class="item item1">
+                <view class="flex-row item-row">
+                    <text class="item-col">明天</text>
+                    <text class="item-col">{{tomorrow.temperature}}</text>
+                </view>
+                <view class="flex-row item-row">
+                    <text class="item-col">{{tomorrow.weather}}</text>
+                    <icon type="{{tomorrow.icon}}" class="item-icon" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weather" style="background-color: {{bgColor}}">
+        <!-- 24小时天气 -->
+        <view class="container">
+            <scroll-view scroll-x class="hourly">
+                <view class="scrollX">
+                    <view class="scroll-item" wx:for="{{hourlyData}}">
+                        <text class="time">{{ item.time }}</text>
+                        <icon type="{{item.icon}}" class="icon"></icon>
+                        <text class="temp">{{item.temp}}°</text>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <!-- 七天天气 -->
+        <view class="container">
+            <view class="weekdays">
+                <view class="week-weather">
+                    <view class="week-item" wx:for="{{weeklyData}}">
+                        <view class="week-day">
+                            <text class="week-time">{{ item.day }}</text>
+                            <text class="week-temp">{{ item.temp }}</text>
+                        </view>
+                        <text class="temp">{{item.weather}}</text>
+                        <icon type="{{item.icon}}" class="icon"></icon>
+                    </view>
+                </view>
+                <view class="week-chart">
+                    <canvas canvas-id="chart" id="chart"></canvas>
+                </view>
+            </view>
+        </view>
+        <!-- 生活指数 -->
+        <view class="container">
+            <view class="living"></view>
+        </view>
+    </view>
 </view>
