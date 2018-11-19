@@ -5,7 +5,7 @@
         <view class="current">
             <view class="position">
                 <icon type="dingwei"></icon>
-                <text class="address">杭州市西湖区文新街道</text>
+                <text class="address">{{address}}</text>
             </view>
             <view class="air-quality">
                 <text class="air-tips" style="background-color: {{air.qualityColor}}"></text>

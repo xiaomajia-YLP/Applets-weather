@@ -15,6 +15,7 @@ Page({
     bgColor: '#5F7A95',
     bgImage: '',
     paddingTop: '',
+    address: '杭州市西湖区文新街道',
     // 实时天气
     current: {
       icon: 'yin',
