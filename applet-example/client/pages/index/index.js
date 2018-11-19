@@ -14,6 +14,7 @@ Page({
   data: {
     bgColor: '#5F7A95',
     bgImage: '',
+    paddingTop: '',
     // 实时天气
     current: {
       icon: 'yin',
@@ -77,40 +78,75 @@ Page({
     }],
     // 每周天气
     weeklyData: [{
-      day: '今天',
-      temp: '11/15',
-      weather: '阴',
-      icon: 'yin'
+      date: '今天',
+      dayTemp: '15',
+      dayIcon: 'yin',
+      dayWeather: '阴',
+      nightTemp: '11',
+      nightWeather: '阴',
+      nightIcon: 'yin',
+      wind: '西北风',
+      windInfo: '4-5级'
     }, {
-      day: '明天',
-      temp: '11/15',
-      weather: '阴',
-      icon: 'yin'
+      date: '明天',
+      dayTemp: '15',
+      dayIcon: 'yin',
+      dayWeather: '阴',
+      nightTemp: '11',
+      nightWeather: '阴',
+      nightIcon: 'yin',
+      wind: '西北风',
+      windInfo: '4-5级'
     }, {
-      day: '后天',
-      temp: '11/15',
-      weather: '阴',
-      icon: 'yin'
+      date: '后天',
+      dayTemp: '15',
+      dayIcon: 'yin',
+      dayWeather: '阴',
+      nightTemp: '11',
+      nightWeather: '阴',
+      nightIcon: 'yin',
+      wind: '西北风',
+      windInfo: '4-5级'
     }, {
-      day: '周一',
-      temp: '11/15',
-      weather: '阴',
-      icon: 'yin'
+      date: '周一',
+      dayTemp: '15',
+      dayIcon: 'yin',
+      dayWeather: '阴',
+      nightTemp: '11',
+      nightWeather: '阴',
+      nightIcon: 'yin',
+      wind: '西北风',
+      windInfo: '4-5级'
     }, {
-      day: '周二',
-      temp: '11/15',
-      weather: '阴',
-      icon: 'yin'
+      date: '周二',
+      dayTemp: '15',
+      dayIcon: 'yin',
+      dayWeather: '阴',
+      nightTemp: '11',
+      nightWeather: '阴',
+      nightIcon: 'yin',
+      wind: '西北风',
+      windInfo: '4-5级'
     }, {
-      day: '周三',
-      temp: '11/15',
-      weather: '阴',
-      icon: 'yin'
+      date: '周三',
+      dayTemp: '15',
+      dayIcon: 'yin',
+      dayWeather: '阴',
+      nightTemp: '11',
+      nightWeather: '阴',
+      nightIcon: 'yin',
+      wind: '西北风',
+      windInfo: '4-5级'
     }, {
-      day: '周四',
-      temp: '11/15',
-      weather: '阴',
-      icon: 'yin'
+      date: '周四',
+      dayTemp: '15',
+      dayIcon: 'yin',
+      dayWeather: '阴',
+      nightTemp: '11',
+      nightWeather: '阴',
+      nightIcon: 'yin',
+      wind: '西北风',
+      windInfo: '4-5级'
     }],
     lifeStyle: [{
       icon: 'yin',
@@ -148,6 +184,17 @@ Page({
   },
 
   onLoad: function () {
-
+    /**
+     * 获取系统信息
+     * -- 获取不同移动设备下的导航栏高度实现顶部适配
+     * xiaomajia 
+     */
+    wx.getSystemInfo({
+      success: (res) => {
+        this.setData({
+          paddingTop: res.statusBarHeight + 12
+        })
+      }
+    })
   }
 })

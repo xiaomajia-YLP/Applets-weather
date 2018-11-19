@@ -1,6 +1,6 @@
 <!-- index.wxml -->
 <view class="wrapper" style="background: {{bgColor}} url({{bgImage}}) center center no-repeat">
-    <view class="container" style="padding-top: 48rpx">
+    <view class="container" style="padding-top: {{paddingTop}}px">
         <!-- 实时天气 -->
         <view class="current">
             <view class="position">
@@ -72,11 +72,11 @@
                 <view class="week-weather">
                     <view class="week-item" wx:for="{{weeklyData}}">
                         <view class="week-day">
-                            <text class="week-time">{{ item.day }}</text>
-                            <text class="week-temp">{{ item.temp }}</text>
+                            <text class="week-info">{{ item.date }}</text>
+                            <text class="week-info">{{ item.nightTemp }}/{{ item.dayTemp }}</text>
                         </view>
-                        <text class="temp">{{item.weather}}</text>
-                        <icon type="{{item.icon}}" class="icon"></icon>
+                        <text class="temp">{{item.dayWeather}}</text>
+                        <icon type="{{item.dayIcon}}" class="icon"></icon>
                     </view>
                 </view>
                 <view class="week-chart">
@@ -84,11 +84,11 @@
                 </view>
                 <view class="week-weather">
                     <view class="week-item" wx:for="{{weeklyData}}">
-                        <icon type="{{item.icon}}" class="icon"></icon>
-                        <text class="temp">{{item.weather}}</text>
+                        <icon type="{{item.nightIcon}}" class="icon"></icon>
+                        <text class="temp">{{item.nightWeather}}</text>
                         <view class="week-day">
-                            <text class="week-time">{{ item.day }}</text>
-                            <text class="week-temp">{{ item.temp }}</text>
+                            <text class="week-info">{{ item.wind }}</text>
+                            <text class="week-info">{{ item.windInfo }}</text>
                         </view>
                     </view>
                 </view>
@@ -99,8 +99,8 @@
             <view class="living">
                 <view class="live-item" wx:for="{{lifeStyle}}" data-name="{{item.name}}" data-detail="{{item.detail}}" bindtap="indexDetail">
                     <view class="title">
-                        <icon type="{{item.icon}}"></icon>
-                        {{item.name}}
+                        <icon type="{{item.icon}}" class="living-icon"></icon>
+                        <text class="living-name">{{item.name}}</text>
                     </view>
                     <view class="content">{{item.info}}</view>
                 </view>

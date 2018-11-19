@@ -103,6 +103,9 @@ $cover-bgc: rgba(0, 0, 0, 0.1);
   font-size: 80rpx;
   display: inline-block;
 }
+.now-info {
+  padding-left: 10rpx;
+}
 
 .item-row {
   justify-content: space-between;
@@ -161,6 +164,13 @@ $cover-bgc: rgba(0, 0, 0, 0.1);
     text-align: center;
     justify-content: space-between;
   }
+  .week-info {
+    margin-bottom: 6rpx;
+    display: block;
+  }
+  .temp {
+    padding: 10rpx 0;
+  }
 }
 // .week-chart {
 //   position: absolute;
@@ -178,8 +188,30 @@ $cover-bgc: rgba(0, 0, 0, 0.1);
 .living {
   @include flex-row;
   flex-wrap: wrap;
+  background-color: $cover-bgc;
+
   .live-item {
     width: 25%;
     height: 188rpx;
+    text-align: center;
+    padding: 50rpx 0 0;
+    border-right: 2rpx solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2rpx solid rgba(255, 255, 255, 0.1);
   }
+  .title,
+  .living-icon {
+    font-size: 24rpx;
+    margin-right: 10rpx;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .content {
+    font-size: 36rpx;
+    margin-top: 20rpx;
+  }
+}
+.message {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 28rpx;
+  text-align: center;
+  padding: 20rpx 0 40rpx;
 }
