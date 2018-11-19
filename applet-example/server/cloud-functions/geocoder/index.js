@@ -1,4 +1,4 @@
-const QQ_MAP_KEY = 'SOBBZ-RNZ33-WR33M-3YHA3-JZBN2-VKBID'
+const QQ_MAP_KEY = 'SOBBZ-xxxx-xxxx-xxxx-xxxx-VKBID'
 const API_URL = 'https://apis.map.qq.com/ws/geocoder/v1/'
 
 const request = require('request')

@@ -34,8 +34,6 @@ exports.main = async (event) => {
         // 统一处理接口返回的数据
         try {
           let rs = $.handlerData(JSON.parse(body))
-          console.log('weather:success ---- data');
-          console.log(rs);
           resolve(rs)
         } catch (e) {
           reject(e)

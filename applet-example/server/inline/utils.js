@@ -15,8 +15,8 @@ const WEATHER_IMAGE_PERFIXER = `${STATIC_SERVER_URL}/icon`
 const WECHAT_APPID = 'wx8696xxxxxxxxxce6'
 const WECHAT_APP_SECRET = '12wwwwwxxxxxxxxxxxxxxxx2'
  
-const KEY = 'xxxxxxxxxxxx'
-const USER_ID = 'HE18888888888888899'
+const KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+const USER_ID = 'xxxxxxxxxxxxxx'
 
 const $ = {
   getWechatAppConfig: () => {
@@ -394,6 +394,8 @@ const $ = {
     let weekly = []
     for (let i = 0; i <= 6; i++) {
       let r = data[i]
+      console.log(r);
+      
       weekly.push({
         day: r.cond_txt_d,
         dayIcon: $.getIconNameByCode(r.cond_code_d),
@@ -467,8 +469,9 @@ const $ = {
         now,
         daily_forecast,
         lifestyle,
-        hourly
+        // hourly
       } = result
+      
       return {
         status: 0,
         effect: $.getEffectSettings(now.cond_code),
