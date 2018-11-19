@@ -1,9 +1,13 @@
 const path = require('path')
 const express = require('express')
-const {PORT} = require('../config.server.json')
 
-const test = require('./cloud-functions/test/').main
-const test2 = require('./cloud-functions/test2/').main
+const {
+  PORT
+} = require('../config.server.json')
+const weather = require('./cloud-functions/weather/').main
+const air = require('./cloud-functions/air/').main
+const jscode2session = require('./cloud-functions/jscode2session/').main
+const decrypt = require('./cloud-functions/jscode2session').main
 
 const app = express()
 
@@ -15,21 +19,48 @@ app.use(
     maxage: '30d'
   })
 )
+// 添加中间件
 
-// 添加云函数mock
-app.get('/api/test2', (req, res, next) => {
-  test2(req.query).then(res.json.bind(res)).catch((e) => {
+app.get('/api/weather', (req, res, next) => {
+  weather(req.query).then(res.json.bind(res)).catch((e) => {
     console.error(e)
     next(e)
   })
 })
+app.get('/api/air', (req, res, next) => {
+  air(req.query).then(res.json.bind(res)).catch((e) => {
+    console.error(e)
+    next(e)
+  })
+  // next()
+})
+
+app.get('/api/jscode2session', (req, res, next) => {
+  jscode2session(req.query).then(res.json.bind(res)).catch((e) => {
+    console.error(e)
+    next(e)
+  })
+  // next()
+})
+
+app.get('/api/decrypt', (req, res, next) => {
+  decrypt(req.query).then(res.json.bind(res)).catch((e) => {
+    console.error(e)
+    next(e)
+  })
+  // next()
+})
+
+const test = require('./cloud-functions/test/').main
+
 app.get('/api/test', (req, res, next) => {
+  // 将 req.query 传入
   test(req.query).then(res.json.bind(res)).catch((e) => {
     console.error(e)
     next(e)
   })
+  // next()
 })
-
 app.listen(PORT, () => {
   console.log(`开发服务器启动成功：http://127.0.0.1:${PORT}`)
 })
