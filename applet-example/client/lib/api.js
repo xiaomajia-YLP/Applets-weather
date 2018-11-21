@@ -1,8 +1,8 @@
-const QQ_MAP_KEY = 'SOBBZ-xxxxxxxxxxxxxxxxxxx-VKBID'
+const QQ_MAP_KEY = 'SOBBZ-xxxxxxxxxxxxxxxxxxxxxxxx-VKBID'
 
 // 填写 env
 wx.cloud.init({
-  env: 'yun-env-13fd4f'
+  env: 'yun-xxx-xxxx'
 })
 
 /**
