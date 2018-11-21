@@ -12,11 +12,11 @@ const STATIC_SERVER_URL = 'https://tianqi-1d3bf9.tcb.qcloud.la'
 const BACKGROUND_PERFIXER = `${STATIC_SERVER_URL}/bg`
 const WEATHER_IMAGE_PERFIXER = `${STATIC_SERVER_URL}/icon`
 
-const WECHAT_APPID = 'wx8696xxxxxxxxxce6'
-const WECHAT_APP_SECRET = '12wwwwwxxxxxxxxxxxxxxxx2'
+const WECHAT_APPID = 'wxxxxxxxxxxxx7'
+const WECHAT_APP_SECRET = 'dbxxxxxxxxxxxxxxxxxxxcb'
  
-const KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-const USER_ID = 'xxxxxxxxxxxxxx'
+const KEY = '1xxxxxxxxxxxxxxxxxxb'
+const USER_ID = 'HExxxxxxxxxxxxxxxxx7'
 
 const $ = {
   getWechatAppConfig: () => {
@@ -394,8 +394,6 @@ const $ = {
     let weekly = []
     for (let i = 0; i <= 6; i++) {
       let r = data[i]
-      console.log(r);
-      
       weekly.push({
         day: r.cond_txt_d,
         dayIcon: $.getIconNameByCode(r.cond_code_d),
@@ -469,7 +467,7 @@ const $ = {
         now,
         daily_forecast,
         lifestyle,
-        // hourly
+        hourly
       } = result
       
       return {

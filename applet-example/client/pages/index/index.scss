@@ -167,9 +167,15 @@ $cover-bgc: rgba(0, 0, 0, 0.1);
   .week-info {
     margin-bottom: 6rpx;
     display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .temp {
     padding: 10rpx 0;
+  }
+  .week-min {
+    font-size: 24rpx;
   }
 }
 // .week-chart {
@@ -207,7 +213,7 @@ $cover-bgc: rgba(0, 0, 0, 0.1);
   .content {
     font-size: 36rpx;
     margin-top: 20rpx;
-    font-weight: 700;
+    font-weight: 500;
   }
 }
 .message {
