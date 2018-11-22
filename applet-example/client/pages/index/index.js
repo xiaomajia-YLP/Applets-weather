@@ -26,7 +26,6 @@ let isUpdate = false
 let effectInstance
 const EFFECT_CANVAS_HEIGHT = 768 / 2
 const CHART_CANVAS_HEIGHT = 272 / 2
-let can = false
 
 Page({
   data: {
@@ -429,7 +428,7 @@ Page({
     }
   },
   /**
-   * echarts绘制动画-stop
+   * 动画-stop
    * xiaomajia 2018.00.21
    */
   stopEffect() {

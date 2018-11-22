@@ -1,5 +1,12 @@
 import effect from '../lib/effect'
-
+/**
+ * 绘制粒子动画
+ * @param {*} canvasId 
+ * @param {*} name 
+ * @param {*} width 
+ * @param {*} height 
+ * @param {*} amount 
+ */
 export const drawEffect = (canvasId, name, width, height, amount) => {
   let rain = effect(name, wx.createCanvasContext(canvasId), width, height, {
     amount: amount || 100,
@@ -7,10 +14,18 @@ export const drawEffect = (canvasId, name, width, height, amount) => {
   })
   return rain.run()
 }
+/**
+ * 定义字符串的长度
+ * @param {*} str 
+ */
 export const realLength = (str) => {
   return str.replace(/[^\x00-\xff]/g, '**').length
 }
-
+/**
+ * 日期格式化
+ * @param {*} d 
+ * @param {*} pattern 
+ */
 export const dateFormat = (d, pattern = 'yyyy-MM-dd') => {
   let y = d.getFullYear().toString(),
     o = {
@@ -30,6 +45,12 @@ export const dateFormat = (d, pattern = 'yyyy-MM-dd') => {
   }
   return pattern
 }
+/**
+ * chart
+ * @param {*} ctx 
+ * @param {*} width 
+ * @param {*} height 
+ */
 export const fixChart = (ctx, width, height) => {
   ctx.devicePixelRatio = 1
   if (width < 305) {
@@ -83,6 +104,10 @@ export const fixChart = (ctx, width, height) => {
     }
   }
 }
+/**
+ * 折线图config
+ * @param {*} data 
+ */
 export const getChartConfig = (data) => {
   data = getChartData(data)
 
@@ -147,6 +172,10 @@ export const getChartConfig = (data) => {
     }
   }
 }
+/**
+ * 折线图数据
+ * @param {*} data 
+ */
 export const getChartData = (data) => {
   let dates = [],
     maxData = [],

@@ -2,6 +2,7 @@
 <wxs src="./index.wxs" module="utils"></wxs>
 <view class="wrapper" style="background: {{backgroundColor}} url({{backgroundImage}}) center top no-repeat">
     <view class="container" style="padding-top: {{paddingTop}}px">
+        <canvas canvas-id="effect" id="effect"></canvas>
         <!-- 实时天气 -->
         <view class="current">
             <view class="position" bindtap="chooseLocation">
