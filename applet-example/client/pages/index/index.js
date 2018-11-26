@@ -191,7 +191,7 @@ Page({
           latitude,
           longitude
         } = res
-        console.log(res);
+        // console.log(res);
 
         let {
           lat,
@@ -279,7 +279,7 @@ Page({
    */
   render(data) {
     isUpdate = true
-    console.log(data)
+    // console.log(data)
     const {
       width,
       scale
@@ -321,10 +321,10 @@ Page({
       lifeStyle
     })
     this.stopEffect()
-
     if (effect && effect.name) {
       effectInstance = drawEffect('effect', effect.name, width, EFFECT_CANVAS_HEIGHT * scale, effect.amount)
     }
+
     // 延时画图
     this.drawChart()
     // 缓存数据

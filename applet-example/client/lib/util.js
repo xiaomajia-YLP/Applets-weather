@@ -1,11 +1,11 @@
 import effect from '../lib/effect'
 /**
  * 绘制粒子动画
- * @param {*} canvasId 
- * @param {*} name 
- * @param {*} width 
- * @param {*} height 
- * @param {*} amount 
+ * @param {*} canvasId
+ * @param {*} name
+ * @param {*} width
+ * @param {*} height
+ * @param {*} amount
  */
 export const drawEffect = (canvasId, name, width, height, amount) => {
   let rain = effect(name, wx.createCanvasContext(canvasId), width, height, {
@@ -16,15 +16,16 @@ export const drawEffect = (canvasId, name, width, height, amount) => {
 }
 /**
  * 定义字符串的长度
- * @param {*} str 
+ * @param {*} str
  */
-export const realLength = (str) => {
+export const realLength = str => {
+  // 每个中文替换为两个字节之后，计算字符串长度
   return str.replace(/[^\x00-\xff]/g, '**').length
 }
 /**
  * 日期格式化
- * @param {*} d 
- * @param {*} pattern 
+ * @param {*} d
+ * @param {*} pattern
  */
 export const dateFormat = (d, pattern = 'yyyy-MM-dd') => {
   let y = d.getFullYear().toString(),
@@ -35,27 +36,28 @@ export const dateFormat = (d, pattern = 'yyyy-MM-dd') => {
       m: d.getMinutes(), //minute
       s: d.getSeconds() //second
     }
-  pattern = pattern.replace(/(y+)/gi, function (a, b) {
+  pattern = pattern.replace(/(y+)/gi, function(a, b) {
     return y.substr(4 - Math.min(4, b.length))
   })
   for (let i in o) {
-    pattern = pattern.replace(new RegExp('(' + i + '+)', 'g'), function (a, b) {
+    pattern = pattern.replace(new RegExp('(' + i + '+)', 'g'), function(a, b) {
       return o[i] < 10 && b.length > 1 ? '0' + o[i] : o[i]
     })
   }
   return pattern
 }
 /**
- * chart
- * @param {*} ctx 
- * @param {*} width 
- * @param {*} height 
+ * 定义ctx的相关属性
+ * @param {*} ctx canvas对象
+ * @param {*} width
+ * @param {*} height
  */
 export const fixChart = (ctx, width, height) => {
-  ctx.devicePixelRatio = 1
+  ctx.devicePixelRatio = 1 // 设备像素比
+  // measureText:在画布上输出文本之前，检查字体的宽度
   if (width < 305) {
     //for line
-    ctx.measureText = function (str) {
+    ctx.measureText = function(str) {
       //为了小屏手机
       let lg = ('' + str).length
       lg = lg * 4
@@ -64,7 +66,7 @@ export const fixChart = (ctx, width, height) => {
       }
     }
   } else {
-    ctx.measureText = function (str) {
+    ctx.measureText = function(str) {
       let lg = ('' + str).length
       lg = lg * 5
       return {
@@ -72,13 +74,13 @@ export const fixChart = (ctx, width, height) => {
       }
     }
   }
-  ctx.measureTextXscale = function (str) {
+  ctx.measureTextXscale = function(str) {
     let lg = realLength('' + str)
     return {
       width: lg
     }
   }
-  ctx.measureTextToolTip = function (str) {
+  ctx.measureTextToolTip = function(str) {
     let lg = realLength('' + str)
     return {
       width: lg * 5.95
@@ -95,7 +97,7 @@ export const fixChart = (ctx, width, height) => {
     display: 'block'
   }
 
-  ctx.canvas.getAttribute = function (name) {
+  ctx.canvas.getAttribute = function(name) {
     if (name == 'width') {
       return ctx.canvas.width
     }
@@ -106,14 +108,15 @@ export const fixChart = (ctx, width, height) => {
 }
 /**
  * 折线图config
- * @param {*} data 
+ * @param {*} data
  */
-export const getChartConfig = (data) => {
+export const getChartConfig = data => {
   data = getChartData(data)
 
   let lineData = {
     labels: data.dates,
-    datasets: [{
+    datasets: [
+      {
         data: data.maxData,
         fill: false,
         borderWidth: 2,
@@ -154,12 +157,16 @@ export const getChartConfig = (data) => {
         display: false
       },
       scales: {
-        yAxes: [{
-          display: false
-        }],
-        xAxes: [{
-          display: false
-        }]
+        yAxes: [
+          {
+            display: false
+          }
+        ],
+        xAxes: [
+          {
+            display: false
+          }
+        ]
       },
       layout: {
         padding: {
@@ -174,19 +181,15 @@ export const getChartConfig = (data) => {
 }
 /**
  * 折线图数据
- * @param {*} data 
+ * @param {*} data
  */
-export const getChartData = (data) => {
+export const getChartData = data => {
   let dates = [],
     maxData = [],
     minData = []
 
   if (data && data.length) {
-    data.forEach(({
-      date,
-      maxTemp,
-      minTemp
-    }) => {
+    data.forEach(({date, maxTemp, minTemp}) => {
       dates.push(date)
       maxData.push(maxTemp)
       minData.push(minTemp)
