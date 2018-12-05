@@ -1,3 +1,18 @@
+## 项目内容
+天气预报小程序
+支持地址选择、24小时天气预报、7天天气预报
+
+## 项目安装
+1. 进入项目根目录执行 `npm install`
+2. 进入server文件夹，执行 `npm install`
+3. 进入server/cloud-functions/xxxxx文件夹，执行 `npm install`
+4. 将相关秘钥以及APPID更换为自己平台相应的内容，具体包括: 
+   - 云函数init的`env`
+   - 腾讯地图开放平台：`QQ_MAP_KEY`,
+   - 小程序APPID：`WECHAT_APPID`,
+   - 小程序私钥：`WECHAT_APP_SECRET`
+   - 和风天气: `USER_ID` 和 `KEY`
+
 ## 项目目录
 ```
 ├── README.md
