@@ -1,5 +1,5 @@
 import Promise from './bluebird'
-const QQ_MAP_KEY = 'SOBBZ-xxxxxxxxxxxxxxxxxxxxxxx-VKBID'
+const QQ_MAP_KEY = 'SOBBZ-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX'
 
 /**
  *  逆经纬度查询

@@ -12,11 +12,11 @@ const STATIC_SERVER_URL = 'https://tianqi-1d3bf9.tcb.qcloud.la'
 const BACKGROUND_PERFIXER = `${STATIC_SERVER_URL}/bg`
 const WEATHER_IMAGE_PERFIXER = `${STATIC_SERVER_URL}/icon`
 
-const WECHAT_APPID = 'wxxxxxxxxxxxx7'
-const WECHAT_APP_SECRET = 'dbxxxxxxxxxxxxxxxxxxxcb'
+const WECHAT_APPID = 'wx7XXXXXXXXXXXXX'
+const WECHAT_APP_SECRET = 'dbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
  
-const KEY = '1xxxxxxxxxxxxxxxxxxb'
-const USER_ID = 'HExxxxxxxxxxxxxxxxx7'
+const KEY = '1exxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+const USER_ID = 'HE1111111111111111'
 
 const $ = {
   getWechatAppConfig: () => {
